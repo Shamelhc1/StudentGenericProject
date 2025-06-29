@@ -18,13 +18,17 @@ public class Student implements Comparable<Student>, QueryItem {
 
      static Random random =new Random();
     private static String[] firstNames = {"Andres", "Omar", "Mathew", "Dan", "Abby", "Han"};
-    private static String[] courses = {"Java", "Calculus", "C++", "C#", "RF design"};
+    private static String[] courses = {"Java", "Calculus", "C++", "C#", "RF design", "Antenna Design"};
 
 
     public Student() {
 
-        this.name = firstNames[random.nextInt(firstNames.length -1)];
-        this.course = courses[random.nextInt(courses.length -1)];
+        // this will initialize first name and last name initials:
+        this.name = firstNames[random.nextInt(firstNames.length)]
+                +" "+ "ABCDEFJHIJKLMNOPQRSTUVWXYZ".split("")[random.nextInt(0, 25)]
+        +".";
+
+        this.course = courses[random.nextInt(courses.length)];
         this.yearStarted = random.nextInt(2019, 2023);
         this.studentID = IDmaker++;
 
