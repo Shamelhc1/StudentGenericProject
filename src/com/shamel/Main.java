@@ -15,11 +15,11 @@ public class Main {
 
         System.out.print("\n".repeat(3));
 
-        QueryList<Student> studentsTobeSearhced = new QueryList<>();
-        studentsTobeSearhced.addAll(randomStudents);
+        QueryList<Student> studentsTobeSearched = new QueryList<>();
+        studentsTobeSearched.addAll(randomStudents);
 
         // Obtaining the list of student enrolled in Java
-        List<Student> JavaStudents =studentsTobeSearhced.getMatches("course","Java");
+        List<Student> JavaStudents =studentsTobeSearched.getMatches("course","Java");
 
         // we will print the list of Java Students here:
         JavaStudents.forEach(System.out::println);
