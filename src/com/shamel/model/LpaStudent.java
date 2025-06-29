@@ -1,5 +1,7 @@
 package com.shamel.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class LpaStudent extends Student{
@@ -17,6 +19,8 @@ public class LpaStudent extends Student{
     // so that the returned student is not matched on percent complete equal to a value,
     // but on percent less than or equal to a submitted value.
 
+
+
     @Override
     public boolean matchFieldValue(String fieldName, String value) {
 
@@ -29,6 +33,20 @@ public class LpaStudent extends Student{
             case "PERCENTCOMPLETED" -> this.percentCompleted <= Double.parseDouble(value);
             default -> false;
         };
-
     }
+
+    @Override
+    public String toString() {
+        return "{%-10s %-10s %-10d %-10s %-10.2f".formatted(name, yearStarted,studentID,
+                course, percentCompleted).trim()+"}";
+    }
+
+    public static List<LpaStudent> generateRandomLPADataBase(int size){
+        List<LpaStudent> data = new ArrayList<>();
+        for(int i =1; i<= size; i++){
+            data.add(new LpaStudent());
+        }
+        return data;
+    }
+
 }

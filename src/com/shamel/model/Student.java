@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
 public class Student implements Comparable<Student>, QueryItem {
 
     final String name;
@@ -13,7 +14,7 @@ public class Student implements Comparable<Student>, QueryItem {
     final String course;
 
     private static int IDmaker = 1000;
-    private final int studentID;
+     final int studentID;
 
      static Random random =new Random();
     private static String[] firstNames = {"Andres", "Omar", "Mathew", "Dan", "Abby", "Han"};
@@ -49,7 +50,7 @@ public class Student implements Comparable<Student>, QueryItem {
 
     @Override
     public String toString() {
-        return "{%-10s %-10d %-10s".formatted(name, yearStarted, course+"}");
+        return "{%-10s %-10s %-10d %-10s".formatted(name, studentID, yearStarted, course+"}");
     }
 
     // this is a static method to generate a Randomized Student databased written into a
