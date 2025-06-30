@@ -53,10 +53,12 @@ public class Main {
 
 
         System.out.println("\n"+"list of student enrolled in Java by ID sorted by ID");
-        // Sorting the list of student enrolled in Java by ID:
-        Comparator<LpaStudent> LpaStudentComparator= new studentComparator<>();
+        // Sorting the list of student enrolled in Java by ID -- Using the nested Comparator on Student Class:
+        var LpaStudentComparator= new Student.studentComparator<>("studentID");
+
         JavaStudents.sort(LpaStudentComparator);
         JavaStudents.forEach(System.out::println);
+
 
     }
 }

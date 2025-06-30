@@ -3,6 +3,7 @@ package com.shamel.model;
 import com.shamel.util.QueryItem;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -66,6 +67,35 @@ public class Student implements Comparable<Student>, QueryItem {
             data.add(new Student());
         }
         return data;
+    }
+
+    // creating a static nested comparator subclass in order to encapsulate
+    // the field inside Student class (optionally):
+
+    public static class studentComparator<T extends Student> implements Comparator<Student> {
+
+        private String fieldToCompare;
+
+        // setting a default constructor,
+        // with the student name as the default field to compare
+
+        public studentComparator() {
+            this("name");
+        }
+
+        public studentComparator(String fieldToCompare) {
+            this.fieldToCompare = fieldToCompare;
+        }
+
+        @Override
+        public int compare(Student o1, Student o2) {
+            return switch (fieldToCompare.toLowerCase()){
+                case "yearstarted" ->  ((Integer) o1.yearStarted).compareTo(o2.yearStarted);
+                case "studenid" ->  ((Integer) o1.studentID).compareTo(o2.studentID);
+                case "course" -> o1.course.compareTo(o2.course);
+                default -> o1.name.compareTo(o2.name);
+            };
+        }
     }
 
 }
