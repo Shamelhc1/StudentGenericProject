@@ -27,9 +27,9 @@ public class LpaStudent extends Student{
         String fieldNameCapitalised = fieldName.toUpperCase();
 
         return switch (fieldNameCapitalised){
-            case "NAME" -> super.name.equalsIgnoreCase(value);
-            case "YEARSTARTED" -> super.yearStarted == Integer.parseInt(value);
-            case "COURSE" -> super.course.equalsIgnoreCase(value);
+            case "NAME" -> super.getName().equalsIgnoreCase(value);
+            case "YEARSTARTED" -> super.getYearStarted() == Integer.parseInt(value);
+            case "COURSE" -> super.getCourse().equalsIgnoreCase(value);
             case "PERCENTCOMPLETED" -> this.percentCompleted <= Double.parseDouble(value);
             default -> false;
         };
@@ -37,8 +37,8 @@ public class LpaStudent extends Student{
 
     @Override
     public String toString() {
-        return "{%-10s %-10s %-10d %-10s %-10.2f".formatted(name, yearStarted,studentID,
-                course, percentCompleted).trim()+"}";
+        return "{%-10s %-10s %-10d %-10s %-10.2f".formatted(getName(), getYearStarted(),getStudentID(),
+                getCourse(), percentCompleted).trim()+"}";
     }
 
     public static List<LpaStudent> generateRandomLPADataBase(int size){

@@ -10,12 +10,12 @@ import java.util.Random;
 
 public class Student implements Comparable<Student>, QueryItem {
 
-    final String name;
-    final int yearStarted;
-    final String course;
+    private String name;
+    private final int yearStarted;
+    private final String course;
 
     private static int IDmaker = 1000;
-    final int studentID;
+    private final int studentID;
 
     static Random random =new Random();
     private static String[] firstNames = {"Andres", "Omar", "Mathew", "Dan", "Abby", "Han"};
@@ -91,7 +91,7 @@ public class Student implements Comparable<Student>, QueryItem {
         public int compare(Student o1, Student o2) {
             return switch (fieldToCompare.toLowerCase()){
                 case "yearstarted" ->  ((Integer) o1.yearStarted).compareTo(o2.yearStarted);
-                case "studenid" ->  ((Integer) o1.studentID).compareTo(o2.studentID);
+                case "studentid" ->  ((Integer) o1.studentID).compareTo(o2.studentID);
                 case "course" -> o1.course.compareTo(o2.course);
                 default -> o1.name.compareTo(o2.name);
             };
@@ -104,5 +104,13 @@ public class Student implements Comparable<Student>, QueryItem {
 
     public int getYearStarted() {
         return yearStarted;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public int getStudentID() {
+        return studentID;
     }
 }

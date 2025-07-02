@@ -53,12 +53,13 @@ public class Main {
         JavaStudents.forEach(System.out::println);
 
 
-        System.out.println("\n"+"list of student enrolled in Java by ID sorted by ID");
+        System.out.println("\n"+"list of student enrolled in Java sorted by ID");
         // Sorting the list of student enrolled in Java by ID -- Using the nested Comparator on Student Class:
         var LpaStudentComparator= new Student.studentComparator<>("studentID");
 
         JavaStudents.sort(LpaStudentComparator);
         JavaStudents.forEach(System.out::println);
+
 
         // Using Lambda expression to filter through the lists:
         //  removing all students enrolled in 2019:
