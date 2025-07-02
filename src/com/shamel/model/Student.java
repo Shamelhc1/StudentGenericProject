@@ -15,9 +15,9 @@ public class Student implements Comparable<Student>, QueryItem {
     final String course;
 
     private static int IDmaker = 1000;
-     final int studentID;
+    final int studentID;
 
-     static Random random =new Random();
+    static Random random =new Random();
     private static String[] firstNames = {"Andres", "Omar", "Mathew", "Dan", "Abby", "Han"};
     private static String[] courses = {"Java", "Calculus", "C++", "C#", "RF design", "Antenna Design"};
 
@@ -98,4 +98,11 @@ public class Student implements Comparable<Student>, QueryItem {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getYearStarted() {
+        return yearStarted;
+    }
 }

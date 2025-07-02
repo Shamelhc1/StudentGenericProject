@@ -4,6 +4,7 @@ import com.shamel.model.LpaStudent;
 import com.shamel.model.Student;
 import com.shamel.util.QueryList;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class Main {
 
         System.out.println("Full list of Students" +"\n");
         //Generating a list of 25 random students: //
-        List<LpaStudent> randLpa = LpaStudent.generateRandomLPADataBase(25);
+        List<LpaStudent> randLpa = LpaStudent.generateRandomLPADataBase(30);
         randLpa.forEach(System.out::println);
 
 
@@ -58,6 +59,26 @@ public class Main {
 
         JavaStudents.sort(LpaStudentComparator);
         JavaStudents.forEach(System.out::println);
+
+        // Using Lambda expression to filter through the lists:
+        //  removing all students enrolled in 2019:
+
+        JavaStudents.removeIf(s -> s.getYearStarted() == 2019);
+        System.out.println("\nremoving all students enrolled in 2019:");
+        JavaStudents.forEach(System.out::println);
+
+
+        // now lets get a list of 2020 students using lambda expressions:
+
+        List<Student> list2020 = new ArrayList<>();
+        randLpa.forEach(s->{
+            if(s.getYearStarted() == 2020){
+                list2020.add(s);
+            }
+        });
+
+        System.out.println("\nOnly students enrolled in 2020:");
+        list2020.forEach(System.out::println);
 
 
     }
