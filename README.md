@@ -6,6 +6,7 @@ A modular Java application that models student data and provides a flexible quer
 
 ## 📌 Overview
 
-This project simulates a system for managing and querying student records. It defines a base Studen class, an extended LpaStudent class, and utilizes a generic QueryList utility to filter and manipulate data collections.
+- This project simulates a system for managing and querying student records. 
+- It defines a base Studen class, an extended LpaStudent class, and utilizes a generic QueryList utility to filter and manipulate data collections.
 
 This project serves both as a **portfolio piece** and an **educational resource** for intermediate Java developers aiming to practice real-world software design patterns.
