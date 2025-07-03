@@ -72,8 +72,11 @@ public class Main {
         randLpa.forEach(System.out::println);
 
         // sorting by course taken, then by name:
-        Comparator<Student> courseComparator = (s1, s2) -> s1.getCourse().compareTo(s2.getCourse());
-        randLpa.sort(courseComparator.thenComparing(nameComparator));
+//        Comparator<Student> courseComparator = (s1, s2) -> s1.getCourse().compareTo(s2.getCourse());
+//        randLpa.sort(courseComparator.thenComparing(nameComparator));
+
+        randLpa.sort(Comparator.comparing(Student::getCourse)
+                .thenComparing(Student::getName));
         System.out.println("\nSorting list of Student by Course then by Name");
         randLpa.forEach(System.out::println);
 
