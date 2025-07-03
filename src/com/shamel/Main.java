@@ -66,10 +66,15 @@ public class Main {
 
         Comparator<Student> nameComparator = (s1,s2) -> s1.getName().compareTo(s2.getName());
         Comparator<Student> IdComparator = (s1,s2) -> Integer.compare(s1.getStudentID(), s2.getStudentID());
-
         randLpa.sort(nameComparator.thenComparing(IdComparator));
 
         System.out.println("\nSorting list of Student by name then by ID");
+        randLpa.forEach(System.out::println);
+
+        // sorting by course taken, then by name:
+        Comparator<Student> courseComparator = (s1, s2) -> s1.getCourse().compareTo(s2.getCourse());
+        randLpa.sort(courseComparator.thenComparing(nameComparator));
+        System.out.println("\nSorting list of Student by Course then by Name");
         randLpa.forEach(System.out::println);
 
 
