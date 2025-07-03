@@ -69,17 +69,23 @@ public class Main {
         JavaStudents.forEach(System.out::println);
 
 
-        // now lets get a list of 2020 students using lambda expressions:
 
-        List<Student> list2020 = new ArrayList<>();
-        randLpa.forEach(s->{
-            if(s.getYearStarted() == 2020){
-                list2020.add(s);
-            }
-        });
+        // now let's get a list of 2020 students using lambda expressions:
+        System.out.println("\nStudents enrolled only in 2020");
+        List<Student> students2020 = new ArrayList<>(randLpa);
+        students2020.removeIf(s-> s.getYearStarted() != 2020);
+        students2020.forEach(System.out::println);
 
-        System.out.println("\nOnly students enrolled in 2020:");
-        list2020.forEach(System.out::println);
+//        randLpa.removeIf(s-> s.getYearStarted() != 2020);
+//        List<Student> list2020 = new ArrayList<>();
+//        randLpa.forEach(s->{
+//            if(s.getYearStarted() == 2020){
+//                list2020.add(s);
+//            }
+//        });
+//
+//        System.out.println("\nOnly students enrolled in 2020:");
+//        list2020.forEach(System.out::println);
 
 
     }
