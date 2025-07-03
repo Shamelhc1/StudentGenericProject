@@ -61,6 +61,17 @@ public class Main {
         JavaStudents.sort(LpaStudentComparator);
         JavaStudents.forEach(System.out::println);
 
+        // Alternately, We can use functional programming to sort the list of Students:
+        // Sorting students by name, THEN ID:
+
+        Comparator<Student> nameComparator = (s1,s2) -> s1.getName().compareTo(s2.getName());
+        Comparator<Student> IdComparator = (s1,s2) -> Integer.compare(s1.getStudentID(), s2.getStudentID());
+
+        randLpa.sort(nameComparator.thenComparing(IdComparator));
+
+        System.out.println("\nSorting list of Student by name then by ID");
+        randLpa.forEach(System.out::println);
+
 
         // Using Lambda expression to filter through the lists:
         //  removing all students enrolled in 2019:
