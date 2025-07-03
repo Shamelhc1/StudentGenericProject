@@ -7,6 +7,7 @@ import com.shamel.util.QueryList;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 class studentComparator<T extends Student> implements Comparator<T>{
 
@@ -39,7 +40,7 @@ public class Main {
 
         System.out.println("Full list of Students" +"\n");
         //Generating a list of 25 random students: //
-        List<LpaStudent> randLpa = LpaStudent.generateRandomLPADataBase(30);
+        List<LpaStudent> randLpa = LpaStudent.generateRandomLPADataBase(80);
         randLpa.forEach(System.out::println);
 
 
@@ -75,6 +76,24 @@ public class Main {
         List<Student> students2020 = new ArrayList<>(randLpa);
         students2020.removeIf(s-> s.getYearStarted() != 2020);
         students2020.forEach(System.out::println);
+
+        // extracting Student who enrolled in 2020 AND take Java:
+        List<Student> Java2020Student = new ArrayList<>(randLpa);
+
+        Predicate<Student> testFor2020 = s -> s.getYearStarted() ==2020;
+        Predicate<Student> testForJavaStudent = s ->
+                s.getCourse().equalsIgnoreCase("java");
+
+        Predicate<Student> test = (testFor2020.and(testForJavaStudent)).negate();
+
+        // the filter test
+        Java2020Student.removeIf(test);
+
+        System.out.println("\nStudents enrolled only in 2020 and Only take Java:");
+        Java2020Student.forEach(System.out::println);
+
+
+
 
 //        randLpa.removeIf(s-> s.getYearStarted() != 2020);
 //        List<Student> list2020 = new ArrayList<>();
